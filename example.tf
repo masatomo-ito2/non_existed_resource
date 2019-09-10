@@ -11,6 +11,6 @@ resource "local_file" "resource_not_exist" {
 }
 
 output "filename" {
-  value = "${local_file.resource_not_exist.*.filename}"
+  value = "${local_file.resource_not_exist.filename}"
 }
 
