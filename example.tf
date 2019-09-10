@@ -1,17 +1,12 @@
-variable "file_count" {
-  default = 1
-}
 
 data "local_file" "resource_not_exist" {
-  count    = "${var.file_count}"
   filename = "${path.module}/not_exist.bar"
 
   depends_on = [local_file.resource_not_exist]
 }
 
 resource "local_file" "resource_not_exist" {
-  count    = "${var.file_count}"
-  content  = "foo! This is file created: ${count.index}"
+  content  = "foo! This is a file created."
   filename = "${path.module}/not_exist.bar"
 }
 
